@@ -97,12 +97,15 @@
 /* Functions                                                        */
 /*                                                                  */
 /********************************************************************/
+
+volatile byte* flashptr;
+
 byte chip_readb(unsigned long address) {
-    return *((volatile byte *) address + FLASH_ADDR);
+    return flashptr[address];
 }
 
 void chip_writeb(byte b, unsigned long address) {
-    *((volatile byte *) address + FLASH_ADDR) = b;
+    flashptr[address] = b;
 }
 
 // a blocking serial input, so I don't have to sprinkle my code
@@ -136,7 +139,10 @@ void send_serial_string(char *s) {
 
 // Init
 void setup() {
-    // main.cの方で済ませてある
+    // main.cの方であらかた済ませてある
+
+    // アドレス設定
+    flashptr = (volatile byte *)((MDCR.BYTE & 7) == 5 ? 0x40000 : 0x400000);
 }
 
 // Main

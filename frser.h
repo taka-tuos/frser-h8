@@ -3,6 +3,7 @@
 
 #include "integer.h"
 #include "sci1.h"
+#include "iodefine.h"
 
 #define byte BYTE
 

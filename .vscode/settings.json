@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "random": "c",
-        "ostream": "c"
+        "ostream": "c",
+        "sci1.h": "c"
     }
 }

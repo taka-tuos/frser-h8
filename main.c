@@ -20,12 +20,14 @@ int check_memory(void)
 	ra=0;
 	wx=0;
 	wa=0;
+
+	unsigned long maddr = (MDCR.BYTE & 7) == 5 ? 0x60000 : 0x600000;
 	
 	for(rsiz = 0; rsiz < 131072; rsiz++)
 	{
 		volatile unsigned char c = rand() & 0xff;
 		
-		*((volatile unsigned char *) rsiz + 0x60000) = c;
+		*((volatile unsigned char *) rsiz + maddr) = c;
 		
 		wx ^= c;
 		wa += c;
@@ -35,7 +37,7 @@ int check_memory(void)
 	{
 		volatile unsigned char c;
 		
-		c = *((volatile unsigned char *) rsiz + 0x60000);
+		c = *((volatile unsigned char *) rsiz + maddr);
 		
 		rx ^= c;
 		ra += c;
