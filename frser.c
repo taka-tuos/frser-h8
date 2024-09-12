@@ -15,9 +15,9 @@
 /*                                                                  */
 /********************************************************************/
 
-#define S_BUSTYPE           0X01 //PARALLEL BUS ONLY
-#define S_IFACE             0X0001 //SERPROG INTERFACE VERSION
-#define S_PROGNAME          "H8SERPROG"
+#define S_BUSTYPE           0x01 //PARALLEL BUS ONLY
+#define S_IFACE             0x0001 //SERPROG INTERFACE VERSION
+#define S_PROGNAME          "H8/3048F-SERPROG"
 #define S_SERBUF            128 //SIZE OF SERIAL BUFFER IN RAM
 #define S_CHIPSIZE          18 // NUMBER OF ADDRESS LINES
 #define S_OPBUF             4096 // SIZE OF OPERATION BUFFER
