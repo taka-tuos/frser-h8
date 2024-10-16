@@ -20,7 +20,7 @@
 #define S_PROGNAME          "H8/3048F-SERPROG"
 #define S_SERBUF            128 //SIZE OF SERIAL BUFFER IN RAM
 #define S_CHIPSIZE          18 // NUMBER OF ADDRESS LINES
-#define S_OPBUF             4096 // SIZE OF OPERATION BUFFER
+#define S_OPBUF             1024 // SIZE OF OPERATION BUFFER
 #define S_WRNMAXLEN         1 // MAX WE CAN WRITE AT ONCE
 #define S_RDNMAXLEN         262144 // MAX SIZE OF THE ADDRESSABLE SPACE?
 
@@ -181,8 +181,8 @@ void loop() {
                 break;
             case S_CMD_Q_SERBUF:
                 send_serial(S_ACK);
-                send_serial(S_SERBUF);
-                send_serial(0);
+                send_serial(lowByte(S_SERBUF));
+                send_serial(highByte(S_SERBUF));
                 break;
             case S_CMD_Q_BUSTYPE:
                 send_serial(S_ACK);

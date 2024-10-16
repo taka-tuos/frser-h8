@@ -6,12 +6,12 @@ extern "C" {
 #endif
 
 typedef unsigned long int _LONG;
-typedef unsigned int      _WORD;
+typedef unsigned short    _WORD;
 typedef unsigned char     _BYTE;
 
 struct st_sam {                                         // struct DMAC
               void             *MAR;                    // MAR
-              unsigned int      ETCR;                   // ETCR
+              unsigned short    ETCR;                   // ETCR
               unsigned char     IOAR;                   // IOAR
               union {                                   // DTCR
                     unsigned char BYTE;                 //  Byte Access
@@ -27,7 +27,7 @@ struct st_sam {                                         // struct DMAC
 };                                                      //
 struct st_fam {                                         // struct DMAC
               void             *MARA;                   // MARA
-              unsigned int      ETCRA;                  // ETCRA
+              unsigned short    ETCRA;                  // ETCRA
               char              wk1;                    //
               union {                                   // DTCRA
                     unsigned char BYTE;                 //  Byte Access
@@ -41,7 +41,7 @@ struct st_fam {                                         // struct DMAC
                            }      BIT;                  //
                     }           DTCRA;                  //
               void             *MARB;                   // MARB
-              unsigned int      ETCRB;                  // ETCRB
+              unsigned short    ETCRB;                  // ETCRB
               char              wk2;                    //
               union {                                   // DTCRB
                     unsigned char BYTE;                 //  Byte Access
@@ -214,9 +214,9 @@ struct st_itu0 {                                        // struct ITU0
                             unsigned char IMFA:1;       //    IMFA
                             }      BIT;                 //
                      }          TSR;                    //
-               unsigned int     TCNT;                   // TCNT
-               unsigned int     GRA;                    // GRA
-               unsigned int     GRB;                    // GRB
+               unsigned short   TCNT;                   // TCNT
+               unsigned short   GRA;                    // GRA
+               unsigned short   GRB;                    // GRB
 };                                                      //
 struct st_itu3 {                                        // struct ITU3
                union {                                  // TCR
@@ -255,11 +255,11 @@ struct st_itu3 {                                        // struct ITU3
                             unsigned char IMFA:1;       //    IMFA
                             }      BIT;                 //
                      }          TSR;                    //
-               unsigned int     TCNT;                   // TCNT
-               unsigned int     GRA;                    // GRA
-               unsigned int     GRB;                    // GRB
-               unsigned int     BRA;                    // BRA
-               unsigned int     BRB;                    // BRB
+               unsigned short   TCNT;                   // TCNT
+               unsigned short   GRA;                    // GRA
+               unsigned short   GRB;                    // GRB
+               unsigned short   BRA;                    // BRA
+               unsigned short   BRB;                    // BRB
 };                                                      //
 struct st_tpc {                                         // struct TPC
               union {                                   // TPMR
@@ -377,8 +377,8 @@ union un_wdt {                                          // union WDT
                           }       RSTCSR;               //
                     } READ;                             //
              struct {                                   // Write Access
-                    unsigned int  TCSR;                 // TCSR/TCNT
-                    unsigned int  RSTCSR;               // RSTCSR
+                    unsigned shortTCSR;                 // TCSR/TCNT
+                    unsigned shortRSTCSR;               // RSTCSR
                     } WRITE;                            //
 };                                                      //
 struct st_rfshc {                                       // struct RFSHC
@@ -791,10 +791,10 @@ struct st_da {                                          // struct D/A
                    }            DACR;                   //
 };                                                      //
 struct st_ad {                                          // struct A/D
-             unsigned int       ADDRA;                  // ADDRA
-             unsigned int       ADDRB;                  // ADDRB
-             unsigned int       ADDRC;                  // ADDRC
-             unsigned int       ADDRD;                  // ADDRD
+             unsigned short     ADDRA;                  // ADDRA
+             unsigned short     ADDRB;                  // ADDRB
+             unsigned short     ADDRC;                  // ADDRC
+             unsigned short     ADDRD;                  // ADDRD
              union {                                    // ADCSR
                    unsigned char BYTE;                  //  Byte Access
                    struct {                             //  Bit  Access

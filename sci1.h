@@ -22,7 +22,9 @@ typedef enum {
   br31250 = 24,
   br38400 = 19,
   br57600 = 12,
-  br115200 = 6
+  br115200 = 6,
+  brMAX = 1, // 384000bps
+  brMAXPlus = 0 // 768000bps
 } TBaudRate;
 #else
 // クロック16MHz時

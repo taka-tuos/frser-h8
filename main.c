@@ -48,8 +48,8 @@ int check_memory(void)
 
 int main(void)
 {
-	rs_init(br115200,sci_txbuf,128,sci_rxbuf,128);
-	
+	rs_init(brMAX,sci_txbuf,128,sci_rxbuf,128);
+
 	set_ccr(0);
 	
 	BSC.ABWCR.BIT.ABW3 = 1; // CS3 空間は８ビット幅
@@ -66,7 +66,7 @@ int main(void)
 	P5.DDR = 0x07; // A16-A18 端子は有効
 	P8.DDR = 0x06; // CS2-CS3 端子は有効
 
-	check_memory();
+	//check_memory();
 	
 	setup();
 	
